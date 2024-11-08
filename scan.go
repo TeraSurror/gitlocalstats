@@ -70,12 +70,12 @@ func getDotFilePath() string {
 }
 
 func addNewSliceElementsToFile(filePath string, newRepos []string) {
-	existingRepos := parseFileLinesToString(filePath)
+	existingRepos := parseFileLinesToSlice(filePath)
 	repos := joinSlices(newRepos, existingRepos)
 	dumpStringsSliceToFile(repos, filePath)
 }
 
-func parseFileLinesToString(filePath string) []string {
+func parseFileLinesToSlice(filePath string) []string {
 	f := openFile(filePath)
 	defer f.Close()
 
